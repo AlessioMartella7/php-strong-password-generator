@@ -29,7 +29,22 @@ require_once __DIR__."/functions/functions.php"
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-12"></div>
+                <div class="col-12 bg-info-subtle rounded p-3">
+                    <p class="mb-0 text-success">nessun parametro etc...</p>
+                </div>
+                <div class="col-12 mt-4 bg-white rounded">
+                    <form action="index.php">
+                        <div class="form-input d-flex justify-content-between align-items-center p-3">
+                            <label class="" for="passwordLength">Lunghezza password</label>
+                            <input class="rounded mx-2 border-1 p-2" type="text" id="passwordLength"
+                                name="passwordLength">
+                        </div>
+                        <div class="buttons mb-3">
+                            <button class="btn btn-primary" type="submit">Invia</button>
+                            <button class="btn btn-secondary" type="reset">Annulla</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
