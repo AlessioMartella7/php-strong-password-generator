@@ -1,5 +1,12 @@
 <?php 
-require_once __DIR__."/functions/functions.php"
+require_once __DIR__."/functions/functions.php";
+$passwordLength =$_GET['passwordLength'];
+
+function generateRandomString ($length) {
+    return base64_encode(random_bytes($length));
+};
+$newPassword = generateRandomString($passwordLength);
+var_dump($newPassword);
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +40,7 @@ require_once __DIR__."/functions/functions.php"
                     <p class="mb-0 text-success">nessun parametro etc...</p>
                 </div>
                 <div class="col-12 mt-4 bg-white rounded">
-                    <form action="index.php">
+                    <form action="index.php" method="get">
                         <div class="form-input d-flex justify-content-between align-items-center p-3">
                             <label class="" for="passwordLength">Lunghezza password</label>
                             <input class="rounded mx-2 border-1 p-2" type="text" id="passwordLength"
