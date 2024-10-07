@@ -3,7 +3,6 @@ require_once __DIR__."/functions/functions.php";
 $passwordLength = $_GET['passwordLength'];
 $message = 'Nessun parametro valido inserito';
 $newPassword = generateRandomString($passwordLength);
-
 ?>
 
 <!DOCTYPE html>
@@ -33,20 +32,26 @@ $newPassword = generateRandomString($passwordLength);
     <main>
         <div class="container">
             <div class="row">
+
+                <!-- password generata o parametri inseriti non validi -->
                 <div class="col-12 bg-info-subtle rounded p-3">
                     <p class="mb-0 text-success"><?php 
-                        
                         echo $newPassword  ?  ' La tua nuova password è: '.$newPassword : $message;
-                        
                     ?></p>
                 </div>
+
+                <!-- form -->
                 <div class="col-12 mt-4 bg-white rounded">
                     <form action="index.php" method="get">
+
+                        <!-- campo di input -->
                         <div class="form-input d-flex justify-content-between align-items-center p-3">
                             <label class="" for="passwordLength">Lunghezza password</label>
                             <input class="rounded mx-2 border-1 p-2" type="text" id="passwordLength"
                                 name="passwordLength">
                         </div>
+
+                        <!-- bottoni -->
                         <div class="buttons mb-3">
                             <button class="btn btn-primary" type="submit">Invia</button>
                             <button class="btn btn-secondary" type="reset">Annulla</button>
@@ -60,15 +65,7 @@ $newPassword = generateRandomString($passwordLength);
 
 </html>
 
-<!-- Descrizione
-Dobbiamo creare una pagina che permetta ai nostri utenti di utilizzare il nostro generatore di password (abbastanza) sicure.
-L’esercizio è suddiviso in varie milestone ed è molto importante svilupparle in modo ordinato.
-Milestone 1
-Creare un form che invii in GET la lunghezza della password.
-Una nostra funzione utilizzerà questo dato per generare una password casuale (composta da lettere, lettere maiuscole, numeri e simboli) da restituire all’utente.
-Scriviamo tutto (logica e layout) in un unico file index.php
-Milestone 2
-Verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file functions.php che includeremo poi nella pagina principale.
+<!-- 
 Milestone 3 (BONUS)
 Invece di visualizzare la password nella index, effettuare un redirect ad una pagina dedicata che tramite $_SESSION recupererà la password da mostrare all’utente.
 Milestone 4 (BONUS)
