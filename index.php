@@ -1,11 +1,15 @@
 <?php 
 require_once __DIR__."/functions/functions.php";
 $passwordLength = $_GET['passwordLength'];
+$message = 'Nessun parametro valido inserito';
 
 function generateRandomString ($length) {
-    if(!empty($length) && ($length > 1) && is_numeric($length)){
+    if(!empty($length) && ($length > 1) && is_numeric($length) &&($length <= 16)){
     return base64_encode(random_bytes($length));
+    } else {
+        return false;
     }
+
 };
 
 
@@ -41,7 +45,11 @@ var_dump($newPassword);
         <div class="container">
             <div class="row">
                 <div class="col-12 bg-info-subtle rounded p-3">
-                    <p class="mb-0 text-success">nessun parametro etc...</p>
+                    <p class="mb-0 text-success"><?php 
+                        
+                        echo $newPassword  ?  ' La tua nuova password è: '.$newPassword : $message;
+                        
+                    ?></p>
                 </div>
                 <div class="col-12 mt-4 bg-white rounded">
                     <form action="index.php" method="get">
