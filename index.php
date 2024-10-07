@@ -1,10 +1,14 @@
 <?php 
 require_once __DIR__."/functions/functions.php";
-$passwordLength =$_GET['passwordLength'];
+$passwordLength = $_GET['passwordLength'];
 
 function generateRandomString ($length) {
+    if(!empty($length) && ($length > 1) && is_numeric($length)){
     return base64_encode(random_bytes($length));
+    }
 };
+
+
 $newPassword = generateRandomString($passwordLength);
 var_dump($newPassword);
 ?>
