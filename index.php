@@ -3,6 +3,9 @@ require_once __DIR__."/functions/functions.php";
 $passwordLength = $_GET['passwordLength'];
 $message = 'Nessun parametro valido inserito';
 $newPassword = generateRandomString($passwordLength);
+session_start();
+$_SESSION['username'] = 'Alessio';
+$_SESSION['password'] = $newPassword;
 ?>
 
 <!DOCTYPE html>
@@ -53,9 +56,12 @@ $newPassword = generateRandomString($passwordLength);
 
                         <!-- bottoni -->
                         <div class="buttons mb-3">
-                            <button class="btn btn-primary" type="submit">Invia</button>
+                            <button class="btn btn-primary" type="submit">Invia
+                            </button>
                             <button class="btn btn-secondary" type="reset">Annulla</button>
+
                         </div>
+
                     </form>
                 </div>
             </div>
