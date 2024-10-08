@@ -40,6 +40,7 @@ $_SESSION['password'] = $newPassword;
                 <div class="col-12 bg-info-subtle rounded p-3">
                     <p class="mb-0 text-success"><?php 
                         echo $newPassword  ?  ' La tua nuova password è: '.$newPassword : $message;
+                        $passwordLength = '';
                     ?></p>
                 </div>
 
@@ -59,9 +60,14 @@ $_SESSION['password'] = $newPassword;
                             <button class="btn btn-primary" type="submit">Invia
                             </button>
                             <button class="btn btn-secondary" type="reset">Annulla</button>
-
                         </div>
 
+                        <?php 
+                        if(isset($newPassword)&& (!empty($newPassword))) {
+                            header('Location: password.php');
+                        }
+                        
+                        ?>
                     </form>
                 </div>
             </div>

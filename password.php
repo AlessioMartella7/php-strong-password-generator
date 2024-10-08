@@ -18,12 +18,19 @@ session_start();
     <main>
         <div class="container">
             <div class="row">
+                <div class="col-12 text-center bg-success rounded my-5 p-4">
+                    <p class="fw-bold fs-2 m-0"><?= $_SESSION['password'] ?></p>
+                </div>
                 <div class="col-12">
-                    <p class="fw-bold m-0"><?= $_SESSION['password'] ?></p>
+
                 </div>
             </div>
         </div>
     </main>
+
+    <?php 
+
+    ?>
 </body>
 
 </html>
